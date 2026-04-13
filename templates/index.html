@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Быстрое ОГЭ · Тренажёр по информатике</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>⚡ Быстрое ОГЭ</h1>
+            <div class="stats-panel">
+                <div class="stat-item"><span class="stat-label">✅</span><span class="stat-value" id="scoreDisplay">0</span></div>
+                <div class="stat-item"><span class="stat-label">📊</span><span class="stat-value" id="totalDisplay">0</span></div>
+            </div>
+        </header>
+
+        <!-- Панель выбора темы -->
+        <div class="card">
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span style="font-weight: 700;">🎯 Режим:</span>
+                <button class="btn mode-btn active" data-mode="train">Тренировка</button>
+                <button class="btn mode-btn" data-mode="exam">⚡ Симуляция ОГЭ</button>
+            </div>
+            <div id="topicSelector" class="topic-grid">
+                <!-- загружается через JS -->
+            </div>
+        </div>
+
+        <!-- Карточка задания -->
+        <div class="card" id="taskCard">
+            <div class="task-header">
+                <span class="task-number" id="taskNumberBadge">Загрузка...</span>
+                <span class="timer" id="timerDisplay">--:--</span>
+            </div>
+            <div class="question-text" id="questionText">
+                Выберите тему и начните тренировку
+            </div>
+
+            <div class="answer-area">
+                <div class="input-group">
+                    <label>📝 Ответ:</label>
+                    <input type="text" id="answerInput" placeholder="Введите ответ" autocomplete="off" />
+                </div>
+            </div>
+
+            <div class="action-bar">
+                <div>
+                    <button class="btn btn-primary" id="checkBtn">✓ Проверить</button>
+                    <button class="btn btn-outline" id="nextBtn">→ Следующее</button>
+                </div>
+                <button class="btn btn-outline" id="resetBtn">🔄 Сброс</button>
+            </div>
+
+            <div id="feedbackArea" class="feedback">
+                Введите ответ и нажмите "Проверить"
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
